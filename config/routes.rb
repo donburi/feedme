@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :options
+
+  resources :questions
+
   resources :vendors
 
   root to: "home#index"
