@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :vendors
 
+  resources :order_templates
+
   root to: "home#index"
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks'}
 
