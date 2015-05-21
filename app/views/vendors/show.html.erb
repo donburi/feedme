@@ -34,6 +34,17 @@
 <%= link_to 'Back', vendors_path %>
 
 <div>
+  <h2>Order Templates</h2>
+  <ul>
+    <% @vendor.order_templates.each do |order_template| %>
+      <li>Order Template No.<%= order_template.id %>
+          <%= link_to 'Edit', edit_order_template_path(order_template) %>
+          <%= link_to 'Delete', order_template, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+      <% end %>
+  </ul>
+</div>
+<div>
   <h2>Order Sheets</h2>
   <ul>
     <% @vendor.order_templates.each do |order_template| %>
