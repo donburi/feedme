@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :order_sheets
+
   resources :options
 
   resources :questions

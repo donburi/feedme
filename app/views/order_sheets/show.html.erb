@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Order template:</strong>
+  <%= @order_sheet.order_template %>
+</p>
+
+<p>
+  <strong>Order day:</strong>
+  <%= @order_sheet.order_day %>
+</p>
+
+<%= link_to 'Edit', edit_order_sheet_path(@order_sheet) %> |
+<%= link_to 'Back', order_sheets_path %>
