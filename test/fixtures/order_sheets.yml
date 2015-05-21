@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_template_id: 
+  order_day: 2015-05-21
+
+two:
+  order_template_id: 
+  order_day: 2015-05-21

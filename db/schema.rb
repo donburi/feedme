@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520003145) do
+ActiveRecord::Schema.define(version: 20150521223457) do
 
   create_table "options", force: :cascade do |t|
     t.integer  "question_id"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20150520003145) do
 
   add_index "options", ["question_id"], name: "index_options_on_question_id"
 
+  create_table "order_sheets", force: :cascade do |t|
+    t.integer  "order_template_id"
+    t.date     "order_day"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "order_sheets", ["order_template_id"], name: "index_order_sheets_on_order_template_id"
+
   create_table "order_templates", force: :cascade do |t|
     t.integer  "vendor_id"
     t.datetime "created_at", null: false
@@ -31,6 +40,19 @@ ActiveRecord::Schema.define(version: 20150520003145) do
   end
 
   add_index "order_templates", ["vendor_id"], name: "index_order_templates_on_vendor_id"
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "order_sheet_id"
+    t.string   "response"
+    t.boolean  "in_office"
+    t.string   "notes"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "orders", ["order_sheet_id"], name: "index_orders_on_order_sheet_id"
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "questions", force: :cascade do |t|
     t.string   "value"

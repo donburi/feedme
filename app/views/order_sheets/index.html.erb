@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Order Sheets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Order template</th>
+      <th>Order day</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @order_sheets.each do |order_sheet| %>
+      <tr>
+        <td><%= order_sheet.order_template %></td>
+        <td><%= order_sheet.order_day %></td>
+        <td><%= link_to 'Show', order_sheet %></td>
+        <td><%= link_to 'Edit', edit_order_sheet_path(order_sheet) %></td>
+        <td><%= link_to 'Destroy', order_sheet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Order sheet', new_order_sheet_path %>
