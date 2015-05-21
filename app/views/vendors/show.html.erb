@@ -32,3 +32,15 @@
 
 <%= link_to 'Edit', edit_vendor_path(@vendor) %> |
 <%= link_to 'Back', vendors_path %>
+
+<div>
+  <h2>Order Sheets</h2>
+  <ul>
+    <% @vendor.order_templates.each do |order_template| %>
+      <% order_template.order_sheets.each do |order_sheet| %>
+        <li><%= order_sheet.order_day %></li>
+        <% end %>
+    <% end %>
+  </ul>
+
+</div>
