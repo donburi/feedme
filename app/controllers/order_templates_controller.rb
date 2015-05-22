@@ -21,6 +21,11 @@ class OrderTemplatesController < ApplicationController
   def edit
   end
 
+  def clone
+    @order_sheet = OrderSheet.create(order_template_id: params[:order_template_id], order_day: params[:order_day])
+    redirect_to order_sheets_path
+  end
+
   # POST /order_templates
   # POST /order_templates.json
   def create

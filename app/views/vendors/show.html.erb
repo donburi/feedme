@@ -32,3 +32,36 @@
 
 <%= link_to 'Edit', edit_vendor_path(@vendor) %> |
 <%= link_to 'Back', vendors_path %>
+
+<div>
+  <h2>Order Templates</h2>
+  <ul>
+    <% @vendor.order_templates.each do |order_template| %>
+      <li>Order Template No.<%= order_template.id %>
+          <%= link_to 'Edit', edit_order_template_path(order_template) %>
+          <%= link_to 'Delete', order_template, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+
+        <%= form_tag (clone_path) do %>
+          <%= label_tag 'order_day', 'Order Day' %>
+          <%= text_field_tag 'order_day' %>
+          <input type="hidden" value="<%= order_template.id %>" name="order_template_id">
+          <%= submit_tag "Create"%>
+        <% end %>
+
+      <% end %>
+  </ul>
+</div>
+<div>
+  <h2>Order Sheets</h2>
+  <ul>
+    <% @vendor.order_templates.each do |order_template| %>
+      <% order_template.order_sheets.each do |order_sheet| %>
+        <li><%= link_to order_sheet.order_day, order_sheet_path(order_sheet) %>
+            <%= link_to 'Delete', order_sheet, method: :delete, data: { confirm: 'Are you sure?'} %>
+        </li>
+        <% end %>
+    <% end %>
+  </ul>
+
+</div>
