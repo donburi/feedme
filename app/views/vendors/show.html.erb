@@ -57,7 +57,9 @@
   <ul>
     <% @vendor.order_templates.each do |order_template| %>
       <% order_template.order_sheets.each do |order_sheet| %>
-        <li><%= order_sheet.order_day %></li>
+        <li><%= link_to order_sheet.order_day, order_sheet_path(order_sheet) %>
+            <%= link_to 'Delete', order_sheet, method: :delete, data: { confirm: 'Are you sure?'} %>
+        </li>
         <% end %>
     <% end %>
   </ul>
