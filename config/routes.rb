@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :users
 
-  get '/clone' => 'order_templates#clone'
+  post '/clone' => 'order_templates#clone'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
