@@ -22,7 +22,11 @@ class OrderTemplatesController < ApplicationController
   end
 
   def clone
-    @order_sheet = OrderSheet.create(order_template_id: params[:order_template_id], order_day: params[:order_day])
+    order_day = params[:order_day]
+    date = Date.new(order_day["Order Day(1i)"].to_i, order_day["Order Day(2i)"].to_i, order_day["Order Day(3i)"].to_i)
+    order_date = date.to_s
+
+    @order_sheet = OrderSheet.create(order_template_id: params[:order_template_id], order_day: order_date)
     redirect_to order_sheets_path
   end
 

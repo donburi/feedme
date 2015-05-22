@@ -44,7 +44,7 @@
 
         <%= form_tag (clone_path) do %>
           <%= label_tag 'order_day', 'Order Day' %>
-          <%= text_field_tag 'order_day' %>
+          <%= date_select 'order_day', 'Order Day' %>
           <input type="hidden" value="<%= order_template.id %>" name="order_template_id">
           <%= submit_tag "Create"%>
         <% end %>
