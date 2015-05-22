@@ -38,6 +38,7 @@
   <ul>
     <% @vendor.order_templates.each do |order_template| %>
       <li>Order Template No.<%= order_template.id %>
+          <%= link_to 'New Order Sheet', clone_path(:order_template_id => order_template.id, :order_day => '2015-06-22') %>
           <%= link_to 'Edit', edit_order_template_path(order_template) %>
           <%= link_to 'Delete', order_template, method: :delete, data: { confirm: 'Are you sure?' } %>
       </li>
