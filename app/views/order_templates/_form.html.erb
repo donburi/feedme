@@ -1,4 +1,4 @@
-<%= form_for(@order_template) do |f| %>
+<%= form_for vendor_order_template_path(@order_template.vendor, @order_template) do |f| %>
   <% if @order_template.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@order_template.errors.count, "error") %> prohibited this order_template from being saved:</h2>

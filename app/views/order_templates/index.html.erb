@@ -12,9 +12,9 @@
   <tbody>
     <% @order_templates.each do |order_template| %>
       <tr>
-        <td><%= link_to 'Show', order_template %></td>
-        <td><%= link_to 'Edit', edit_order_template_path(order_template) %></td>
-        <td><%= link_to 'Destroy', order_template, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', vendor_order_template %></td>
+        <td><%= link_to 'Edit', edit_vendor_order_template_path(order_template) %></td>
+        <td><%= link_to 'Destroy', vendor_order_template, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Order template', new_order_template_path %>
+<%= link_to 'New Order template', new_vendor_order_template_path %>
