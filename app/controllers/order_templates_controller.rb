@@ -14,7 +14,7 @@ class OrderTemplatesController < ApplicationController
 
   # GET /order_templates/new
   def new
-    @order_template = OrderTemplate.new
+    @order_template = OrderTemplate.new(vendor_id: params[:vendor_id])
   end
 
   # GET /order_templates/1/edit
@@ -33,11 +33,11 @@ class OrderTemplatesController < ApplicationController
   # POST /order_templates
   # POST /order_templates.json
   def create
-    @order_template = OrderTemplate.new(order_template_params)
+    @order_template = OrderTemplate.new(vendor_id: params[:vendor_id])
 
     respond_to do |format|
       if @order_template.save
-        format.html { redirect_to @order_template, notice: 'Order template was successfully created.' }
+        format.html { redirect_to vendor_path(params[:vendor_id]), notice: 'Order template was successfully created.' }
         format.json { render :show, status: :created, location: @order_template }
       else
         format.html { render :new }
@@ -50,8 +50,8 @@ class OrderTemplatesController < ApplicationController
   # PATCH/PUT /order_templates/1.json
   def update
     respond_to do |format|
-      if @order_template.update(order_template_params)
-        format.html { redirect_to @order_template, notice: 'Order template was successfully updated.' }
+      if @order_template.update(vendor_id: params[:vendor_id])
+        format.html { redirect_to vendor_path(params[:vendor_id]), notice: 'Order template was successfully updated.' }
         format.json { render :show, status: :ok, location: @order_template }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class OrderTemplatesController < ApplicationController
   def destroy
     @order_template.destroy
     respond_to do |format|
-      format.html { redirect_to order_templates_url, notice: 'Order template was successfully destroyed.' }
+      format.html { redirect_to vendor_path(params[:vendor_id]), notice: 'Order template was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
