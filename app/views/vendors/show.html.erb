@@ -38,8 +38,9 @@
   <ul>
     <% @vendor.order_templates.each do |order_template| %>
       <li>Order Template No.<%= order_template.id %>
-          <%= link_to 'Edit', edit_order_template_path(order_template) %>
-          <%= link_to 'Delete', order_template, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'New Template', new_vendor_order_template_path(order_template) %>
+          <%= link_to 'Edit', edit_vendor_order_template_path(order_template.vendor, order_template) %>
+          <%= link_to 'Delete', vendor_order_template_path(order_template.vendor, order_template), method: :delete, data: { confirm: 'Are you sure?' } %>
       </li>
 
         <%= form_tag (clone_path) do %>
