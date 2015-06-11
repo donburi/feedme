@@ -5,10 +5,10 @@ Rails.application.routes.draw do
 
   resources :options
 
-  resources :questions
-
   resources :vendors do
-    resources :order_templates
+    resources :order_templates do
+      resources :questions
+    end
   end
 
   root to: "home#index"
