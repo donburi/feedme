@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @question %> |
-<%= link_to 'Back', questions_path %>
+<%= link_to 'Show', vendor_order_template_question_path(@question.order_template.vendor_id, @question.order_template_id, @question) %> |
+<%= link_to 'Back', vendor_order_template_question_path %>

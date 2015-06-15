@@ -15,10 +15,10 @@
     <% @questions.each do |question| %>
       <tr>
         <td><%= question.value %></td>
-        <td><%= question.order_template %></td>
-        <td><%= link_to 'Show', question %></td>
-        <td><%= link_to 'Edit', edit_question_path(question) %></td>
-        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= question.order_template.vendor.name %> #<%= question.order_template.id %></td>
+        <td><%= link_to 'Show', vendor_order_template_question_path(question.order_template.vendor_id, question.order_template_id, question) %></td>
+        <td><%= link_to 'Edit', edit_vendor_order_template_question_path(question.order_template.vendor_id, question.order_template_id, question) %></td>
+        <td><%= link_to 'Destroy', vendor_order_template_question_path(question.order_template.vendor, question.order_template, question), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Question', new_question_path %>
+<%= link_to 'New Question', new_vendor_order_template_question_path %>
