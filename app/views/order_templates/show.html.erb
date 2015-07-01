@@ -1,4 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_vendor_order_template_path(@order_template.vendor_id, @order_template) %> 
+<h2><%= @order_template.vendor.name %> Template #<%= @order_template.id%></h2>
+
+<%= form_for [@question.order_template.vendor, @question.order_template, @question] do |f| %>
+
+  <div class="field">
+    <%= f.label :value %><br>
+    <%= f.text_field :value %>
+  </div>
+  <div class="field">
+    <%= f.label :order_template_id %><br>
+    <%= f.text_field :order_template_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Edit', edit_vendor_order_template_path(@order_template.vendor_id, @order_template) %>
 <%= link_to 'Back', vendor_order_template_path %>

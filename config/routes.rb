@@ -3,8 +3,6 @@ Rails.application.routes.draw do
 
   resources :order_sheets
 
-  resources :options
-
   resources :vendors do
     resources :order_templates do
       resources :questions

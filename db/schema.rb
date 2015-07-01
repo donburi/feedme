@@ -11,18 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150521223457) do
-
-  create_table "options", force: :cascade do |t|
-    t.integer  "question_id"
-    t.string   "name"
-    t.string   "description"
-    t.decimal  "price",       precision: 6, scale: 2
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-  end
-
-  add_index "options", ["question_id"], name: "index_options_on_question_id"
+ActiveRecord::Schema.define(version: 20150701224023) do
 
   create_table "order_sheets", force: :cascade do |t|
     t.integer  "order_template_id"
