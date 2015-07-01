@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150701231024) do
+ActiveRecord::Schema.define(version: 20150701233158) do
 
   create_table "order_sheets", force: :cascade do |t|
     t.integer  "order_template_id"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20150701231024) do
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "order_sheet_id"
-    t.string   "response"
+    t.text     "response"
     t.boolean  "in_office"
     t.string   "notes"
     t.datetime "created_at",     null: false
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20150701231024) do
     t.integer  "order_template_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.text     "options", default: []
+    t.text     "options"
   end
 
   add_index "questions", ["order_template_id"], name: "index_questions_on_order_template_id"
